@@ -1,11 +1,12 @@
 import { BsGoogle, BsGithub, BsArrowLeft } from "react-icons/bs";
 import Image from "next/image";
 import Link from "next/link";
+import Dashboard from "../dashboard/page";
 
 export default function Login() {
   return (
-    <div className="w-screen h-screen flex">
-      <div className="w-3/5 bg-black">
+    <div className="w-screen h-screen flex md:flex-row flex-col">
+      <div className="md:w-3/5 bg-black w-full md:p-0 p-10">
         <Image
           src="/space-login.jpg"
           width={600}
@@ -50,11 +51,17 @@ export default function Login() {
           </div>
           <form className="flex flex-col">
             <label>Email</label>
-            <input className="border p-2 outline-none rounded-md" placeholder="johndoe@example.com"/>
+            <input
+              className="border p-2 outline-none rounded-md"
+              placeholder="johndoe@example.com"
+            />
             <label>Password</label>
-            <input className="border p-2 outline-none rounded-md" placeholder="Min. 6 characters"/>
+            <input
+              className="border p-2 outline-none rounded-md"
+              placeholder="Min. 6 characters"
+            />
             <button className="mt-3 p-2 bg-black rounded-md text-white">
-              Log in
+              <Link href='/dashboard'>Log in</Link>
             </button>
           </form>
           <div className="text-center text-sm">
