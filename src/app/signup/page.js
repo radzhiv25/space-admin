@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function Login() {
   return (
-    <div className="w-screen h-screen flex">
-      <div className="w-3/5 bg-black">
+    <div className="w-screen h-screen flex md:flex-row flex-col">
+      <div className="md:w-3/5 bg-black w-full md:p-0 p-10">
         <Image
           src="/space-login.jpg"
           width={600}
