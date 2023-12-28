@@ -7,7 +7,7 @@ export default function Home() {
       {/* <h1>hey 👋🏻</h1> */}
       <div className="m-5 p-3 flex justify-between items-center border-b">
         <div className="leading-tight">
-          <h1 className="text-md font-semibold">Space admin</h1>
+          <h1 className="md:text-xl text-lg font-semibold">Space admin</h1>
           <p className="text-xs text-gray-400">A place to see space happenings</p>
         </div>
         <div className="text-gray-500 font-sans space-x-5">
