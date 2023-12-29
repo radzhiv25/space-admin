@@ -5,6 +5,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
+import Footer from "../components/footer";
 
 const Dashboard = () => {
   const [launches, setLaunches] = useState([]);
@@ -100,77 +101,88 @@ const Dashboard = () => {
           Dashboard Page
         </h1>
         <button>
-          <Link href="/">logout</Link>
+          <Link href="/" className="hover:underline">logout</Link>
         </button>
       </div>
-      <div className="m-5">
-      <h2>SpaceX Launches</h2>
-      <div className="grid grid-cols-5 gap-5 p-2 border rounded-md">
-        {launches.map((launch) => (
-          <div key={launch.flight_number} className="border rounded-md p-1">
-            {launch.mission_name}
+      <div className="m-5 my-10 space-y-5">
+        <div className="space-y-2">
+          <h2 className="font-semibold">SpaceX Launches</h2>
+          <div className="grid md:grid-cols-5 grid-cols-2 gap-5 p-2 border rounded-md">
+            {launches.map((launch) => (
+              <div key={launch.flight_number} className="border rounded-md p-1">
+                {launch.mission_name}
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+        <div className="space-y-2">
+          <h2 className="font-semibold">SpaceX Rockets</h2>
+          <ul className="grid md:grid-cols-5 grid-cols-2 gap-5 p-2 border rounded-md">
+            {rockets.map((rocket) => (
+              <li key={rocket.rocket_id} className="border rounded-md p-1">
+                {rocket.rocket_name}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <h2>SpaceX Rockets</h2>
-      <ul className="grid grid-cols-5 gap-5 p-2 border rounded-md">
-        {rockets.map((rocket) => (
-          <li key={rocket.rocket_id} className="border rounded-md p-1">
-            {rocket.rocket_name}
-          </li>
-        ))}
-      </ul>
-
-      <h2>SpaceX Capsules</h2>
-      <div className="grid grid-cols-5 gap-5 p-2 border rounded-md">
-        {capsules.map((capsule) => (
-          <div key={capsule.capsule_id} className="border rounded-md p-1">
-            {capsule.capsule_serial}
-            <p>ID: {capsule.capsule_id}</p>
-            <p>Status: {capsule.status}</p>
-            <p>Original Launch: {capsule.original_launch}</p>
-            <p>Original Launch: {capsule.original_launch_unix}</p>
-            <p className="font-medium">
-              Mission:{" "}
-              {capsule.missions.map((mission) => (
-                <div className="border rounded-md my-1 font-normal">
-                  <p>Name: {mission.name}</p>
-                  <p>Flight: {mission.flight}</p>
-                </div>
-              ))}
-            </p>
-            <p>Landings: {capsule.landings}</p>
-            <p>Type: {capsule.type}</p>
-            <p>Reuse Count: {capsule.reuse_count}</p>
+        <div className="space-y-2">
+          <h2 className="font-semibold">SpaceX Capsules</h2>
+          <div className="grid md:grid-cols-5 grid-cols-2 gap-5 p-2 border rounded-md">
+            {capsules.map((capsule) => (
+              <div key={capsule.capsule_id} className="border rounded-md p-1">
+                {capsule.capsule_serial}
+                <p>ID: {capsule.capsule_id}</p>
+                <p>Status: {capsule.status}</p>
+                <p>Original Launch: {capsule.original_launch}</p>
+                <p>Original Launch: {capsule.original_launch_unix}</p>
+                <p className="font-medium">
+                  Mission:{" "}
+                  {capsule.missions.map((mission) => (
+                    <div className="border rounded-md my-1 font-normal">
+                      <p>Name: {mission.name}</p>
+                      <p>Flight: {mission.flight}</p>
+                    </div>
+                  ))}
+                </p>
+                <p>Landings: {capsule.landings}</p>
+                <p>Type: {capsule.type}</p>
+                <p>Reuse Count: {capsule.reuse_count}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
 
-      <h2>SpaceX Cores</h2>
-      <ul className="grid grid-cols-5 gap-5 p-2 border rounded-md">
-        {cores.map((cores) => (
-          <li className="border rounded-md p-1">{cores.core_serial}</li>
-        ))}
-      </ul>
+        <div className="space-y-2">
+          <h2 className="font-semibold">SpaceX Cores</h2>
+          <ul className="grid md:grid-cols-5 grid-cols-2 gap-5 p-2 border rounded-md">
+            {cores.map((cores) => (
+              <li className="border rounded-md p-1">{cores.core_serial}</li>
+            ))}
+          </ul>
+        </div>
 
-      <h2>SpaceX Dragons</h2>
-      <ul className="grid grid-cols-5 gap-5 p-2 border rounded-md">
-        {dragons.map((dragon) => (
-          <li key={dragon.id} className="border rounded-md p-1">
-            {dragon.name}
-          </li>
-        ))}
-      </ul>
+        <div className="space-y-2">
+          <h2 className="font-semibold">SpaceX Dragons</h2>
+          <ul className="grid md:grid-cols-5 grid-cols-2 gap-5 p-2 border rounded-md">
+            {dragons.map((dragon) => (
+              <li key={dragon.id} className="border rounded-md p-1">
+                {dragon.name}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <h2>SpaceX History</h2>
-      <ul className="grid grid-cols-5 gap-5 p-2 border rounded-md">
-        {history.map((history) => (
-          <li key={history.id} className="border rounded-md p-1">
-            {history.title}
-          </li>
-        ))}
-      </ul>
+        <div className="space-y-2">
+          <h2 className="font-semibold">SpaceX History</h2>
+          <ul className="grid md:grid-cols-5 grid-cols-2 gap-5 p-2 border rounded-md">
+            {history.map((history) => (
+              <li key={history.id} className="border rounded-md p-1">
+                {history.title}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
