@@ -1,9 +1,11 @@
 import { BsGoogle, BsGithub, BsArrowLeft } from "react-icons/bs";
 import Image from "next/image";
 import Link from "next/link";
-import Dashboard from "../dashboard/page";
+// import Dashboard from "../dashboard/page";
+// import {signIn, useSession} from 'next-auth/react'
 
 export default function Login() {
+  // const session = useSession('')
   return (
     <div className="w-screen h-screen flex md:flex-row flex-col">
       <div className="md:w-3/5 bg-black w-full md:p-0 p-10">
